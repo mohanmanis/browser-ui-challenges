@@ -15,3 +15,6 @@ This contains challenges asked in browser coding rounds
 > - Add your code to you this new folder
 >
 > - To start the app use `pnpm run dev`
+
+
+Refer this for details on Vite: [scaffolding-your-first-vite-project](https://vitejs.dev/guide/#scaffolding-your-first-vite-project)
