@@ -1,17 +1,22 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 const ListItem = ({ name, hasChildren, showChildren, expand }) => {
+  const [show, setShowDir] = useState(false);
   return (
-    <li>
-      <button onClick={expand}>
+    <div className="list-item">
+      <li onClick={expand} style={{ cursor: hasChildren ? "pointer" : "auto" }}>
         {hasChildren ? (showChildren ? "📂" : "📁") : "📄"}
         <span>{name}</span>
-      </button>
-    </li>
+      </li>
+      {hasChildren && (
+        <div>
+          <button>Add Folder +</button>
+          <button>Add File +</button>
+        </div>
+      )}
+    </div>
   );
-}
-
-
+};
 
 const TreeNode = ({ node }) => {
   const { id, name, children = [] } = node;
@@ -25,8 +30,9 @@ const TreeNode = ({ node }) => {
     }
   };
   return (
-    <div key={id}>
-      <ListItem name={name}
+    <div key={id} className={showChildren ? "expanded" : ""}>
+      <ListItem
+        name={name}
         hasChildren={hasChildren}
         showChildren={showChildren}
         expand={expand}
@@ -36,14 +42,13 @@ const TreeNode = ({ node }) => {
   );
 };
 
-
 const Tree = ({ data = [] }) => {
   return (
     <ul>
-    {data.map((node) => (
-      <TreeNode key={node.id} node={node} />
-    ))}
-   </ul>
+      {data.map((node) => (
+        <TreeNode key={node.id} node={node} />
+      ))}
+    </ul>
   );
 };
 

@@ -2,10 +2,27 @@ ul {
   list-style-type: none;
 }
 
-button > span {
+li > span {
   margin-left: 12px;
 }
 
+.expanded {
+  font-weight: bold;
+  border-left: 1px solid black;
+}
+
 li {
+  margin: 12px;
+  background-color: antiquewhite;
+  width: fit-content;
   padding: 12px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+}
+
+.list-item button {
+  margin-left: 12px;
 }
