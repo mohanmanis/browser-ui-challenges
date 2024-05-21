@@ -1,13 +1,8 @@
-import { useState } from 'react'
-import './App.css'
+import './App.css';
+import { BarChart } from "./components/BarChart";
 
 function App() {
-
-  return (
-    <>
-      
-    </>
-  )
+  return (<BarChart />)
 }
 
 export default App
