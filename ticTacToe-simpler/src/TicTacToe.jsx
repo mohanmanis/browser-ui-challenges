@@ -10,7 +10,7 @@ const Board = ({ size }) => {
   useEffect(() => reset(), [size]);
 
   const checkWinnerLogic = (i, newTiles) => {
-    const isDraw = newTiles.every((tile) => tile !== "");
+    const isDraw = newTiles.every(tile => !!tile);
     const isWinner = checkWinner(i, newTiles, size);
     setGameOver(isDraw || isWinner);
     setWinner(isDraw ? "Draw" : isWinner ? `Player-${player} wins` : "");
@@ -21,9 +21,10 @@ const Board = ({ size }) => {
     setTiles(Array(size * size).fill(""));
     setPlayer(PLAYER_X);
     setGameOver(false);
+    setWinner("");
   };
 
-  const handleClick = (i) => {
+  const handleClick = i => {
     if (tiles[i] || gameOver) return;
     const newTiles = [...tiles];
     newTiles[i] = player;
