@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  text-align: center;
+}
+
+.input-box {
+  height: 2rem;
+  padding: 0.25rem;
+}
+
+.game-board {
+  margin-top: 2rem;
+  display: grid;
+  gap: 10px;
+}
+
+.tile {
+  width: 100px;
+  height: 100px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.tile:hover {
+  background-color: #f0f0f0;
+}
+
+.game-over {
+  pointer-events: none;
+  opacity: 0.5;
+}
