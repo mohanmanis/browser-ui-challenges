@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const ListItem = ({ name, hasChildren, showChildren, expand }) => {
-  const [show, setShowDir] = useState(false);
   return (
     <div className="list-item">
       <li onClick={expand} style={{ cursor: hasChildren ? "pointer" : "auto" }}>
