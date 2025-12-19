@@ -163,7 +163,7 @@ export default function ContactsApp() {
       {/* Results count */}
       <div className="results">
         Showing <strong>{processedContacts.length}</strong> of <strong>{contacts.length}</strong> contacts
-        {(search || filterValue) && (
+        {(search || filterField || filterValue) && (
           <button className="clear-all" onClick={() => { setSearch(''); setFilterField(''); setFilterValue(''); }}>
             Clear all filters
           </button>

@@ -6,7 +6,7 @@ This contains challenges asked in browser coding rounds
 
 ### 1. **contacts-database** ⭐
 **Interview-optimized contacts management system** with search, filter, and sort.
-- ✅ Single component (~200 lines) - easy to code in 45-60 min
+- ✅ Single component (~200 lines) - completable in 45-60 min
 - ✅ Async data loading with `getData()` function  
 - ✅ Global search across multiple fields
 - ✅ Field-specific filtering with dynamic dropdowns
@@ -17,7 +17,7 @@ This contains challenges asked in browser coding rounds
 
 ### 2. **tabs-deep-linking** ⭐
 **Interview-optimized tabs component** with deep linking and lazy loading.
-- ✅ Single component (~200 lines) - completable in 30-45 min
+- ✅ Single component (~80 lines) - completable in 30 min
 - ✅ Deep linking via URL query params (`?tab=home`)
 - ✅ State persistence on page refresh
 - ✅ Lazy loading with content caching
@@ -25,6 +25,18 @@ This contains challenges asked in browser coding rounds
 - ✅ Modern URLSearchParams API
 - ✅ Production-ready pattern
 - 📚 [View Documentation](./tabs-deep-linking/README.md)
+
+### 3. **music-player** ⭐
+**Interview-optimized music player UI** with playback simulation and search.
+- ✅ Single component (~230 lines) - completable in 45-60 min
+- ✅ Mock API data fetching
+- ✅ Song list with play times
+- ✅ Click to play/pause functionality
+- ✅ Active track highlighting
+- ✅ Progress bar with seek capability
+- ✅ Search/filter songs
+- ✅ Beautiful responsive UI
+- 📚 [View Documentation](./music-player/README.md)
 
 ### 2. **doc-json-renderer**
 React component that renders HTML documents from JSON structure.
