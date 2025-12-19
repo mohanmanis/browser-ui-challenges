@@ -1,0 +1,58 @@
+.tabs {
+  width: 100%;
+}
+
+.tabs__list {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid #e9ecef;
+  margin-bottom: 24px;
+  overflow-x: auto;
+}
+
+.tabs__button {
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6c757d;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tabs__button:hover {
+  color: #667eea;
+  background: #f8f9fa;
+}
+
+.tabs__button--active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  font-weight: 600;
+}
+
+.tabs__button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.tabs__panel {
+  min-height: 300px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
