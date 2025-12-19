@@ -1,39 +1,113 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  place-items: center;
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   text-align: center;
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.container p {
+  color: #666;
+  margin-bottom: 30px;
 }
 
 .input-box {
   height: 2rem;
-  padding: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  margin: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-box:focus {
+  border-color: #667eea;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 20px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.game-info {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  min-height: 30px;
+}
+
+.winner {
+  color: #4caf50;
+  font-size: 1.5rem;
 }
 
 .game-board {
-  margin-top: 2rem;
+  margin-top: 30px;
   display: grid;
-  gap: 10px;
+  gap: 12px;
+  justify-content: center;
 }
 
 .tile {
   width: 100px;
   height: 100px;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   cursor: pointer;
-  border: 1px solid #333;
+  border: 3px solid #e0e0e0;
+  background: white;
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease;
+  transition: all 0.2s ease;
+  color: #333;
 }
 
-.tile:hover {
-  background-color: #f0f0f0;
+.tile:hover:not(.game-over .tile) {
+  background-color: #f5f5f5;
+  border-color: #667eea;
+  transform: scale(1.05);
+}
+
+.tile.X {
+  color: #667eea;
+}
+
+.tile.O {
+  color: #764ba2;
 }
 
 .game-over {
   pointer-events: none;
-  opacity: 0.5;
+}
+
+.game-over .tile {
+  opacity: 0.7;
 }

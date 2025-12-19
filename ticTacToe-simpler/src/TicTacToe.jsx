@@ -1,13 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { PLAYER_X, PLAYER_O, checkWinner } from "./utils";
 
+// eslint-disable-next-line react/prop-types
 const Board = ({ size }) => {
   const [tiles, setTiles] = useState(Array(size * size).fill(""));
   const [player, setPlayer] = useState(PLAYER_X);
   const [gameOver, setGameOver] = useState(false);
   const [winner, setWinner] = useState("");
 
-  useEffect(() => reset(), [size]);
+  const reset = useCallback(() => {
+    setTiles(Array(size * size).fill(""));
+    setPlayer(PLAYER_X);
+    setGameOver(false);
+    setWinner("");
+  }, [size]);
+
+  useEffect(() => {
+    reset();
+  }, [reset]);
 
   const checkWinnerLogic = (i, newTiles) => {
     const isDraw = newTiles.every(tile => !!tile);
@@ -15,13 +25,6 @@ const Board = ({ size }) => {
     setGameOver(isDraw || isWinner);
     setWinner(isDraw ? "Draw" : isWinner ? `Player-${player} wins` : "");
     setPlayer(player === PLAYER_X ? PLAYER_O : PLAYER_X);
-  };
-
-  const reset = () => {
-    setTiles(Array(size * size).fill(""));
-    setPlayer(PLAYER_X);
-    setGameOver(false);
-    setWinner("");
   };
 
   const handleClick = i => {
@@ -33,19 +36,25 @@ const Board = ({ size }) => {
   };
 
   return (
-    <div >
+    <div>
+      <div className="game-info">
+        {gameOver ? (
+          <div className="winner">{winner}</div>
+        ) : (
+          <div>Current Player: <strong>{player}</strong></div>
+        )}
+      </div>
       <div
         className={`game-board ${gameOver ? "game-over" : ""}`}
         style={{ gridTemplateColumns: `repeat(${size}, auto)` }}
       >
         {tiles.map((val, i) => (
-          <div className="tile" key={i} onClick={() => handleClick(i)}>
+          <div className={`tile ${val}`} key={i} onClick={() => handleClick(i)}>
             {val}
           </div>
         ))}
       </div>
-      {gameOver && <p>{winner}</p>}
-      {gameOver && <button onClick={reset}>reset</button>}
+      {gameOver && <button onClick={reset}>Play Again</button>}
     </div>
   );
 };
@@ -55,14 +64,22 @@ const TicTacToe = () => {
 
   return (
     <div className="container">
-      <h1>Tic Tac Toe Game</h1>
-      <input
-        type="number"
-        min={0}
-        placeholder="Provide the grid size"
-        className="input-box"
-        onChange={e => setSize(+e.target.value)}
-      />
+      <h1>🎮 Tic Tac Toe</h1>
+      <p>Interview-Ready Solution</p>
+      <div>
+        <label htmlFor="grid-size" style={{ fontSize: '1rem', color: '#666', marginRight: '10px' }}>
+          Grid Size:
+        </label>
+        <input
+          id="grid-size"
+          type="number"
+          min={3}
+          max={10}
+          value={size}
+          className="input-box"
+          onChange={e => setSize(Math.max(3, Math.min(10, +e.target.value || 3)))}
+        />
+      </div>
       <Board size={size} />
     </div>
   );
