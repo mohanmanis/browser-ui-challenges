@@ -1,23 +1,7 @@
-import withFeatureFlag from "./HOC/withFeatureFlag.jsx";
-import FeatureComponent from "./components/FeatureComponent.jsx";
-import { FeatureFlagProvider } from "./context/FeatureFlagContext.jsx";
-import "./App.css";
-
-const FeatureComponentWithFlag = withFeatureFlag(
-  FeatureComponent,
-  "newFeature"
-);
-
+import FeatureFlagSimple from './FeatureFlagSimple';
 
 function App() {
-  return (
-    <FeatureFlagProvider>
-      <div>
-        <h1>Featute Flag Component: </h1>
-        <FeatureComponentWithFlag />
-      </div>
-    </FeatureFlagProvider>
-  );
+  return <FeatureFlagSimple />;
 }
 
 export default App;

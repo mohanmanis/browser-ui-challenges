@@ -1,8 +1,7 @@
-import './App.css';
-import { BarChart } from "./components/BarChart";
+import BarChartSimple from './BarChartSimple';
 
 function App() {
-  return (<BarChart />)
+  return <BarChartSimple />;
 }
 
-export default App
+export default App;
